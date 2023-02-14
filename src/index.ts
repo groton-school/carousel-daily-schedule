@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (match && match.length) {
                 title = match[1];
             }
-            console.log({ match, title });
             return {
                 html: `<div class="fc-event-main-frame"><div class="fc-event-time">${arg.event.start && arg.event.start?.getHours() > 12
                         ? arg.event.start.getHours() - 12
