@@ -1,12 +1,12 @@
 {
-  "name": "carousel-calendar-view",
+  "name": "carousel-daily-schedule",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf build",
     "build": "webpack",
-    "serve": "webpack serve",
-    "clean": "rm -rf dist"
+    "serve": "webpack serve"
   },
   "keywords": [],
   "author": "",
@@ -22,22 +22,7 @@
   "devDependencies": {
     "@battis/eslint-config": "github:battis/eslint-config",
     "@battis/prettier-config": "github:battis/prettier-config",
-    "@tsconfig/recommended": "^1.0.2",
-    "@types/node": "^18.13.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.3",
-    "css-minimizer-webpack-plugin": "^4.2.2",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.2",
-    "postcss": "^8.4.21",
-    "postcss-loader": "^7.0.2",
-    "postcss-preset-env": "^8.0.1",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "@battis/webpack-typescript-spa": "github:battis/webpack-typescript-spa"
   },
   "prettier": "@battis/prettier-config",
   "eslintConfig": {
