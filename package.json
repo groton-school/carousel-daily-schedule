@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf build/*",
     "build": "webpack",
-    "serve": "webpack serve",
+    "serve": "webpack serve"
   },
   "keywords": [],
   "author": "",
