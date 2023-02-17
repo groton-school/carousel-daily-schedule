@@ -1,1 +1,2 @@
 runtime: php81
+entrypoint: public
