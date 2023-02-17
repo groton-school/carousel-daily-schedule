@@ -1,0 +1,14 @@
+{
+    "name": "groton-school/carousel-daily-schedule",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sbattis@groton.org"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "post-autoload-dump": "npm install; npm run build"
+    }
+}

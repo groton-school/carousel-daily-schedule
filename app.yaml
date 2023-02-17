@@ -1,2 +1,2 @@
 runtime: php81
-entrypoint: serve public/index.html
+entrypoint: serve build/index.html
