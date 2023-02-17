@@ -1,9 +1,6 @@
-.projectid
 /build
 /node_modules
 
 /.nova/*
 !.nova/Artwork
 !.nova/Configuration.json
-
-/vendor/

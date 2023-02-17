@@ -1,4 +1,2 @@
-#!include:.gitignore
-.git*
-*.md
-.nova
+*
+!build
