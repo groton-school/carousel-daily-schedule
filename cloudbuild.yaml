@@ -1,10 +1,7 @@
 steps:
 - name: 'node'
   entrypoint: 'npm'
-  args: ['install','pnpm']
-- name: 'node'
-  entrypoint: 'npx'
-  args: ['pnpm','install','--shamefully-hoist','--no-frozen-lockfile']
+  args: ['install']
 - name: 'node'
   entrypoint: 'npm'
   args: ['run build']
