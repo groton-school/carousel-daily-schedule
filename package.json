@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rm -rf public/*",
     "build": "webpack",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "deploy": "source .env; yes | gcloud app deploy --project=$CLOUDSDK_CORE_PROJECT"
   },
   "keywords": [],
   "author": "",
