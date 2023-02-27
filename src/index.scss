@@ -7,6 +7,14 @@ body {
 }
 
 #calendar {
+  .fc-day-today {
+      background: #A6093D;
+
+      .fc-col-header-cell-cushion {
+          color: white;
+      }
+  }
+
   .red {
     background: red;
     border: darkred;
