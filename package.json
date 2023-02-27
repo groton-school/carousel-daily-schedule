@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf public/*",
+    "clean": "rimraf public",
     "build": "webpack",
     "serve": "webpack serve",
     "deploy": "source .env; yes | gcloud app deploy --project=$PROJECT"
@@ -21,7 +21,8 @@
   "devDependencies": {
     "@battis/eslint-config": "github:battis/eslint-config",
     "@battis/prettier-config": "github:battis/prettier-config",
-    "@battis/webpack-typescript-spa": "github:battis/webpack-typescript-spa"
+    "@battis/webpack-typescript-spa": "github:battis/webpack-typescript-spa",
+    "rimraf": "^4.1.2"
   },
   "prettier": "@battis/prettier-config",
   "eslintConfig": {

@@ -7,5 +7,5 @@ module.exports = config({
     'ical.js': 'ICAL',
   },
   template: 'template',
-  build: 'public'
+  build: 'public',
 });
