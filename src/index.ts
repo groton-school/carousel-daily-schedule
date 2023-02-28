@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         slotDuration: '00:30:00',
         slotMinTime: '08:00:00',
         slotMaxTime: '16:00:00',
-        nowIndicator: true,
         expandRows: true,
         aspectRatio: 16 / 8,
         events: {
