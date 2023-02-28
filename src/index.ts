@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         expandRows: true,
         aspectRatio: 16 / 8,
         events: {
-            url: `feed.php?url=${encodeURIComponent(feed)}`,
+            url: 'https://massive-boulder-378201.ue.r.appspot.com/feed.php?url=https://groton.myschoolapp.com/podium/feed/iCal.aspx?z=wn27FHKUwlX%2b0R6Z0JjGG1t%2bLg3lHs9J50KgJ6kRmfJntkYOCGBU5XJPQHk%2fm%2bHSdotxEnIYlSJsO1psmikQ6Q%3d%3d', //`feed.php?url=${encodeURIComponent(feed)}`,
             format: 'ics',
         },
         eventClassNames: (arg) => {
@@ -47,6 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (arg.event.allDay) {
                 const match = /(.+) \(All\)/.exec(arg.event.title);
                 if (match && match.length) {
+                    switch (match[1]) {
+                        case 'Monday':
+                        case 'Tuesday':
+                        case 'Wednesday':
+                        case 'Thursday':
+                        case 'Friday':
+                        case 'Saturday':
+                            return null;
+                    }
                     return match[1];
                 }
                 return arg.event.title;
@@ -55,17 +64,32 @@ document.addEventListener('DOMContentLoaded', function() {
             let title = arg.event.title;
             if (match && match.length) {
                 title = match[1];
+                switch (title) {
+                    case 'Conference period':
+                        title = 'Conference';
+                        break;
+                    case 'Flex block':
+                        title = 'Flex';
+                        break;
+                }
             }
             return {
-                html: `<div class="fc-event-main-frame"><div class="fc-event-time">${arg.event.start && arg.event.start?.getHours() > 12
-                        ? arg.event.start.getHours() - 12
-                        : arg.event.start?.getHours()
-                    }:${arg.event.start && arg.event.start.getMinutes() < 10 ? '0' : ''
-                    }${arg.event.start?.getMinutes()} - ${arg.event.end && arg.event.end?.getHours() > 12
-                        ? arg.event.end.getHours() - 12
-                        : arg.event.end?.getHours()
-                    }:${arg.event.end && arg.event.end.getMinutes() < 10 ? '0' : ''
-                    }${arg.event.end?.getMinutes()}</div><div class="fc-event-title-container"><div class="fc-event-title fc-sticky">${title}</div></div></div>`,
+                html: `${arg.event.start &&
+                        arg.event.end &&
+                        (arg.event.end.getTime() - arg.event.start.getTime()) / 1000 / 60 > 25
+                        ? `<div class="fc-event-main-frame"><div class="fc-event-time"><svg viewBox="0 0 100 10"><text x="50%" y="8" text-anchor="middle">${arg.event.start && arg.event.start?.getHours() > 12
+                            ? arg.event.start.getHours() - 12
+                            : arg.event.start?.getHours()
+                        }:${arg.event.start && arg.event.start.getMinutes() < 10 ? '0' : ''
+                        }${arg.event.start?.getMinutes()} - ${arg.event.end && arg.event.end?.getHours() > 12
+                            ? arg.event.end.getHours() - 12
+                            : arg.event.end?.getHours()
+                        }:${arg.event.end && arg.event.end.getMinutes() < 10 ? '0' : ''
+                        }${arg.event.end?.getMinutes()}</text></svg></div>`
+                        : ''
+                    }<div class="fc-event-title"><svg viewBox="0 0 95 20">
+                                    <text x="50%" y="13" text-anchor="middle">${title}</text>
+                                  </svg></div></div>`,
             };
         },
     });

@@ -15,6 +15,27 @@ body {
     }
   }
 
+  .fc-event-main-frame {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .fc-event-main {
+    text-align: center;
+    svg {
+      text {
+        stroke: none;
+        fill: white;
+      }
+    }
+  }
+
+  .fc-event-title {
+    font-size: min(100vh, 18px);
+  }
+
   .red {
     background: red;
     border: darkred;
@@ -32,6 +53,10 @@ body {
     .fc-event-main-frame {
       color: darkgoldenrod;
     }
+
+    svg text {
+      fill: darkgoldenrod;
+    }
   }
 
   .green {
@@ -46,11 +71,15 @@ body {
     .fc-event-main-frame {
       color: blue;
     }
+
+    svg text {
+      fill: blue;
+    }
   }
 
   .dark-blue {
     background: darkblue;
-    border: darkblue;
+    border: rgb(0, 0, 71);
   }
 
   .purple {
