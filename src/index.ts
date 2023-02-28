@@ -26,10 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
         slotDuration: '00:30:00',
         slotMinTime: '08:00:00',
         slotMaxTime: '16:00:00',
+        nowIndicator: true,
         expandRows: true,
         aspectRatio: 16 / 8,
         events: {
-            url: 'https://massive-boulder-378201.ue.r.appspot.com/feed.php?url=https://groton.myschoolapp.com/podium/feed/iCal.aspx?z=wn27FHKUwlX%2b0R6Z0JjGG1t%2bLg3lHs9J50KgJ6kRmfJntkYOCGBU5XJPQHk%2fm%2bHSdotxEnIYlSJsO1psmikQ6Q%3d%3d', //`feed.php?url=${encodeURIComponent(feed)}`,
+            url: `feed.php?url=${encodeURIComponent(feed)}`,
             format: 'ics',
         },
         eventClassNames: (arg) => {

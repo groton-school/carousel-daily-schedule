@@ -1,3 +1,15 @@
+:root {
+  --groton-red: #a6093d;
+  --red: red;
+  --orange: rgb(255, 163, 0);
+  --yellow: rgb(255, 249, 44);
+  --green: rgb(9, 180, 0);
+  --light-blue: rgb(135, 193, 255);
+  --dark-blue: rgb(0, 80, 166);
+  --purple: rgb(110, 0, 177);
+  --no-color: gray;
+}
+
 body {
   margin: 40px 10px;
   padding: 0;
@@ -7,94 +19,91 @@ body {
 }
 
 #calendar {
-  .fc-day-today {
-    background: #a6093d;
-
-    .fc-col-header-cell-cushion {
-      color: white;
-    }
+  a.fc-col-header-cell-cushion {
+    text-decoration: none;
+    color: black;
   }
 
-  .fc-event-main-frame {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  .fc-event-main {
+  .fc-event {
     text-align: center;
-    svg {
-      text {
-        stroke: none;
-        fill: white;
+    box-shadow: 0 0 0.25em black;
+
+    .fc-event-main-frame {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .fc-event-title {
+        font-size: min(100%, 36px);
+        font-weight: bold;
       }
     }
   }
 
-  .fc-event-title {
-    font-size: min(100%, 36px);
-    font-weight: bold;
+  .fc-timegrid-now-indicator-line {
+    border-width: 0.25em;
+    box-shadow: 0 0 1em white;
+  }
+
+  .fc-day-today {
+    background: var(--groton-red);
+
+    .fc-col-header-cell-cushion {
+      color: white;
+      text-shadow: 0 0 1em black;
+    }
+
+    .fc-event {
+      box-shadow: 0 0 1em black;
+    }
+  }
+
+  @mixin color-block(
+    $background,
+    $text: white,
+    $shadow: black,
+    $border: black
+  ) {
+    background: $background;
+    color: $text;
+    svg text {
+      stroke: none;
+      fill: $text;
+    }
+    text-shadow: 0 0 1em $shadow;
+    border: solid 0.25px $border;
   }
 
   .red {
-    background: red;
-    border: darkred;
+    @include color-block(var(--red));
   }
 
   .orange {
-    background: orange;
-    border: darkorange;
+    @include color-block(var(--orange));
   }
 
   .yellow {
-    background: yellow;
-    border: goldenrod;
-
-    .fc-event-main-frame {
-      color: darkgoldenrod;
-    }
-
-    svg text {
-      fill: darkgoldenrod;
-    }
+    @include color-block(var(--yellow), black, lightgray);
   }
 
   .green {
-    background: green;
-    border: darkgreen;
+    @include color-block(var(--green));
   }
 
   .light-blue {
-    background: lightblue;
-    border: blue;
-
-    .fc-event-main-frame {
-      color: blue;
-    }
-
-    svg text {
-      fill: blue;
-    }
+    @include color-block(var(--light-blue));
   }
 
   .dark-blue {
-    background: darkblue;
-    border: rgb(0, 0, 71);
+    @include color-block(var(--dark-blue));
   }
 
   .purple {
-    background: purple;
-    border: indigo;
+    @include color-block(var(--purple));
   }
 
   .no-color {
-    background: gray;
-    border: darkgray;
-  }
-
-  a.fc-col-header-cell-cushion {
-    text-decoration: none;
-    color: black;
+    @include color-block(var(--no-color));
   }
 }
