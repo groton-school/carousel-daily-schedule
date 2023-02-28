@@ -6,9 +6,9 @@ import './index.scss';
 const feed = new URLSearchParams(location.search).get('ics') || '';
 
 document.addEventListener('DOMContentLoaded', function() {
-    const calendarEl = document.getElementById('calendar');
+    const calendarEl = document.getElementById('calendar') as HTMLElement;
 
-    const calendar = new Calendar(calendarEl as HTMLElement, {
+    const calendar = new Calendar(calendarEl, {
         plugins: [timeGridPlugin, iCalendarPlugin],
         initialView: 'timeGridWeek',
         titleFormat: { month: 'long', day: 'numeric' },
@@ -73,36 +73,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         break;
                 }
             }
+            let time;
+            const { start, end } = arg.event;
+            const displayTime =
+                start && end && (end.getTime() - start.getTime()) / 1000 / 60 > 25;
+            if (displayTime) {
+                time = `${start?.getHours() > 12 ? start.getHours() - 12 : start?.getHours()
+                    }:${start.getMinutes() < 10 ? '0' : ''}${start?.getMinutes()} - ${end?.getHours() > 12 ? end.getHours() - 12 : end?.getHours()
+                    }:${end.getMinutes() < 10 ? '0' : ''}${end?.getMinutes()}`;
+            }
             return {
                 html: `<div class="fc-event-main-frame">
-                            ${arg.event.start &&
-                        arg.event.end &&
-                        (arg.event.end.getTime() -
-                            arg.event.start.getTime()) /
-                        1000 /
-                        60 >
-                        25
+                        ${displayTime
                         ? `
                             <div class="fc-event-time">
                                 <svg viewBox="0 0 100 10">
                                     <text x="50%" y="8" text-anchor="middle">
-                                        ${arg.event.start &&
-                            arg.event.start?.getHours() > 12
-                            ? arg.event.start.getHours() - 12
-                            : arg.event.start?.getHours()
-                        }:${arg.event.start &&
-                            arg.event.start.getMinutes() < 10
-                            ? '0'
-                            : ''
-                        }${arg.event.start?.getMinutes()} - ${arg.event.end &&
-                            arg.event.end?.getHours() > 12
-                            ? arg.event.end.getHours() - 12
-                            : arg.event.end?.getHours()
-                        }:${arg.event.end &&
-                            arg.event.end.getMinutes() < 10
-                            ? '0'
-                            : ''
-                        }${arg.event.end?.getMinutes()}
+                                        ${time}
                                     </text>
                                 </svg>
                             </div>`
