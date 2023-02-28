@@ -33,7 +33,8 @@ body {
   }
 
   .fc-event-title {
-    font-size: min(100vh, 18px);
+    font-size: min(100%, 36px);
+    font-weight: bold;
   }
 
   .red {

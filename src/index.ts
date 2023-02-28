@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${displayTime
                         ? `
                             <div class="fc-event-time">
-                                <svg viewBox="0 0 100 10">
-                                    <text x="50%" y="8" text-anchor="middle">
+                                <svg viewBox="0 0 100 12">
+                                    <text x="50%" y="10" text-anchor="middle">
                                         ${time}
                                     </text>
                                 </svg>
@@ -96,11 +96,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         : ''
                     }
                     <div class="fc-event-title">
-                        <svg viewBox="0 0 95 20">
+                        ${displayTime
+                        ? `<svg viewBox="0 0 95 20">
                             <text x="50%" y="13" text-anchor="middle">
                                 ${title}
                             </text>
-                        </svg>
+                        </svg>`
+                        : title
+                    }
                     </div>
                 </div>`,
             };
