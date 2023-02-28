@@ -74,22 +74,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             return {
-                html: `${arg.event.start &&
+                html: `<div class="fc-event-main-frame">
+                            ${arg.event.start &&
                         arg.event.end &&
-                        (arg.event.end.getTime() - arg.event.start.getTime()) / 1000 / 60 > 25
-                        ? `<div class="fc-event-main-frame"><div class="fc-event-time"><svg viewBox="0 0 100 10"><text x="50%" y="8" text-anchor="middle">${arg.event.start && arg.event.start?.getHours() > 12
+                        (arg.event.end.getTime() -
+                            arg.event.start.getTime()) /
+                        1000 /
+                        60 >
+                        25
+                        ? `
+                            <div class="fc-event-time">
+                                <svg viewBox="0 0 100 10">
+                                    <text x="50%" y="8" text-anchor="middle">
+                                        ${arg.event.start &&
+                            arg.event.start?.getHours() > 12
                             ? arg.event.start.getHours() - 12
                             : arg.event.start?.getHours()
-                        }:${arg.event.start && arg.event.start.getMinutes() < 10 ? '0' : ''
-                        }${arg.event.start?.getMinutes()} - ${arg.event.end && arg.event.end?.getHours() > 12
+                        }:${arg.event.start &&
+                            arg.event.start.getMinutes() < 10
+                            ? '0'
+                            : ''
+                        }${arg.event.start?.getMinutes()} - ${arg.event.end &&
+                            arg.event.end?.getHours() > 12
                             ? arg.event.end.getHours() - 12
                             : arg.event.end?.getHours()
-                        }:${arg.event.end && arg.event.end.getMinutes() < 10 ? '0' : ''
-                        }${arg.event.end?.getMinutes()}</text></svg></div>`
+                        }:${arg.event.end &&
+                            arg.event.end.getMinutes() < 10
+                            ? '0'
+                            : ''
+                        }${arg.event.end?.getMinutes()}
+                                    </text>
+                                </svg>
+                            </div>`
                         : ''
-                    }<div class="fc-event-title"><svg viewBox="0 0 95 20">
-                                    <text x="50%" y="13" text-anchor="middle">${title}</text>
-                                  </svg></div></div>`,
+                    }
+                    <div class="fc-event-title">
+                        <svg viewBox="0 0 95 20">
+                            <text x="50%" y="13" text-anchor="middle">
+                                ${title}
+                            </text>
+                        </svg>
+                    </div>
+                </div>`,
             };
         },
     });
