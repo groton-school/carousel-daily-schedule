@@ -2,7 +2,7 @@ const config = require('@battis/webpack-typescript-spa');
 
 module.exports = config({
   root: __dirname,
-  name: 'Daily Schedule',
+  appName: 'Groton Daily Schedule',
   externals: {
     'ical.js': 'ICAL',
   },
