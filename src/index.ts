@@ -4,6 +4,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import './index.scss';
 
 const feed = new URLSearchParams(location.search).get('ics') || '';
+const message =
+    new URLSearchParams(location.search).get('feed') || 'No classes this week';
 
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar') as HTMLElement;
@@ -111,4 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     calendar.render();
+    setTimeout(() => {
+        if (document.querySelector('.fc-event')) {
+            (
+                document.querySelector('#message-wrapper')! as HTMLElement
+            ).style!.display = 'none';
+        } else {
+            document.querySelector('#message')!.innerHTML = message;
+        }
+    }, 10000);
 });
