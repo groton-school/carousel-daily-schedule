@@ -13,16 +13,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@fullcalendar/core": "^6.1.4",
-    "@fullcalendar/icalendar": "^6.1.4",
-    "@fullcalendar/timegrid": "^6.1.4",
+    "@fullcalendar/core": "^6.1.5",
+    "@fullcalendar/icalendar": "^6.1.5",
+    "@fullcalendar/timegrid": "^6.1.5",
     "ical.js": "^1.5.0"
   },
   "devDependencies": {
     "@battis/eslint-config": "github:battis/eslint-config",
     "@battis/prettier-config": "github:battis/prettier-config",
     "@battis/webpack-typescript-spa": "github:battis/webpack-typescript-spa",
-    "rimraf": "^4.3.1"
+    "rimraf": "^4.4.1"
   },
   "prettier": "@battis/prettier-config",
   "eslintConfig": {
