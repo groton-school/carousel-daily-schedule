@@ -77,7 +77,8 @@ body {
     border: solid 0.25px $border;
   }
 
-  .red {
+  .red,
+  .w {
     @include color-block(var(--red));
   }
 
@@ -85,15 +86,18 @@ body {
     @include color-block(var(--orange));
   }
 
-  .yellow {
+  .yellow,
+  .x {
     @include color-block(var(--yellow), black, lightgray);
   }
 
-  .green {
+  .green,
+  .z {
     @include color-block(var(--green));
   }
 
-  .light-blue {
+  .light-blue,
+  .y {
     @include color-block(var(--light-blue));
   }
 

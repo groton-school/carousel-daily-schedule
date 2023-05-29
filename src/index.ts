@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         eventClassNames: (arg) => {
             let color = 'no-color';
             const match =
-                /^(Red|Orange|Yellow|Green|Dark Blue|Light Blue|Purple)/.exec(
+                /^(Red|Orange|Yellow|Green|Dark Blue|Light Blue|Purple|W|X|Y|Z)/.exec(
                     arg.event.title
                 );
             if (match && match.length) {
