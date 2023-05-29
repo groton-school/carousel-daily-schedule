@@ -143,6 +143,10 @@ body {
   z-index: 1000;
 }
 
+.hidden {
+  display: none;
+}
+
 #message {
   font-size: 10vh;
   text-shadow: 0 0 10px white;
