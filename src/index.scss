@@ -77,35 +77,38 @@ body {
     border: solid 0.25px $border;
   }
 
-  .red,
-  .w {
+  .red {
     @include color-block(var(--red));
   }
 
-  .orange {
+  .orange,
+  .y-block {
     @include color-block(var(--orange));
   }
 
   .yellow,
-  .x {
+  .x-block {
     @include color-block(var(--yellow), black, lightgray);
   }
 
   .green,
-  .z {
+  .z-block {
     @include color-block(var(--green));
   }
 
   .light-blue,
-  .y {
+  .study-hall {
     @include color-block(var(--light-blue));
   }
 
-  .dark-blue {
+  .dark-blue,
+  .w-block {
     @include color-block(var(--dark-blue));
   }
 
-  .purple {
+  .purple,
+  .activity,
+  .group {
     @include color-block(var(--purple));
   }
 
