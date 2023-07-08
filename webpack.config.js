@@ -1,6 +1,4 @@
-const config = require('@battis/webpack/ts/spa');
-
-module.exports = config({
+module.exports = require('@battis/webpack/ts/spa')({
   root: __dirname,
   appName: 'Groton Daily Schedule',
   externals: {
