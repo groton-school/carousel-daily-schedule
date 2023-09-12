@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const displayTime =
         start &&
         end &&
-        (end.getTime() - start.getTime()) / 1000 / 60 > (isGRACE ? 35 : 25);
+        (end.getTime() - start.getTime()) / 1000 / 60 > (isGRACE ? 35 : 30);
       if (displayTime) {
         time = `${start?.getHours() > 12 ? start.getHours() - 12 : start?.getHours()
           }:${start.getMinutes() < 10 ? '0' : ''}${start?.getMinutes()} - ${end?.getHours() > 12 ? end.getHours() - 12 : end?.getHours()
