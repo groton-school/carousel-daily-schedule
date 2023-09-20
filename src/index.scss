@@ -39,6 +39,10 @@ body {
       .fc-event-title {
         font-size: min(100%, 36px);
         font-weight: bold;
+
+        svg {
+          height: 100%;
+        }
       }
     }
   }

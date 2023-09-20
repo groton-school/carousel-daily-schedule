@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
             title = title.substr(0, 1);
             break;
         }
+      } else if (/^Conference period.*/.exec(title)) {
+        title = 'Conference';
       } else if (title == 'Check-In - 1 (CK)') {
         title = 'Check-In';
       }
@@ -125,23 +127,24 @@ document.addEventListener('DOMContentLoaded', function() {
             : ''
           }
                     <div class="fc-event-title">
-                        ${displayTime
-            ? `<svg viewBox="0 0 95 ${isGRACE && / or /.test(title) ? 40 : 20
-            }">
+                        ${
+                          /*displayTime
+            ?*/ `<svg viewBox="0 0 95 ${isGRACE && / or /.test(title) ? 40 : 20
+          }">
                             <text x="50%" y="13" text-anchor="middle">
                                 ${isGRACE && / or /.test(title)
-              ? `<tspan x="50%" text-anchor="middle" dy="0">${title.replace(
-                /(.* or ).*/,
-                '$1'
-              )}</tspan><tspan x="50%" text-anchor="middle" dy="13">${title.replace(
-                /.* or (.*)/,
-                '$1'
-              )}</tspan>`
-              : title
-            }
+            ? `<tspan x="50%" text-anchor="middle" dy="0">${title.replace(
+              /(.* or ).*/,
+              '$1'
+            )}</tspan><tspan x="50%" text-anchor="middle" dy="13">${title.replace(
+              /.* or (.*)/,
+              '$1'
+            )}</tspan>`
+            : title
+          }
                             </text>
                         </svg>`
-            : title
+          /*: title*/
           }
                     </div>
                 </div>`
