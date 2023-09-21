@@ -132,9 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
             : ''
           }
                     <div class="fc-event-title">
-                        ${
-                          /*displayTime
-            ?*/ `<svg viewBox="0 0 95 ${isGRACE && / or /.test(title) ? 40 : 20
+                        ${`<svg viewBox="0 0 95 ${isGRACE && / or /.test(title) ? 40 : 20
           }">
                             <text x="50%" y="13" text-anchor="middle">
                                 ${isGRACE && / or /.test(title)
@@ -148,9 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
             : title
           }
                             </text>
-                        </svg>`
-          /*: title*/
-          }
+                        </svg>`}
                     </div>
                 </div>`
       };
