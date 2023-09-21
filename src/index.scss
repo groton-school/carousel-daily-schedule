@@ -41,7 +41,9 @@ body {
         font-weight: bold;
 
         svg {
+          max-height: 100%;
           height: 100%;
+          max-width: 100%;
         }
       }
     }
@@ -81,36 +83,43 @@ body {
     border: solid 0.25px $border;
   }
 
-  .red {
+  .red,
+  .RD {
     @include color-block(var(--red));
   }
 
   .orange,
+  .OR,
   .y-block {
     @include color-block(var(--orange));
   }
 
   .yellow,
+  .YL,
   .x-block {
     @include color-block(var(--yellow), black, lightgray);
   }
 
   .green,
+  .GR,
   .z-block {
     @include color-block(var(--green));
   }
 
   .light-blue,
+  .LB,
   .study-hall {
     @include color-block(var(--light-blue));
   }
 
   .dark-blue,
+  .DB,
   .w-block {
     @include color-block(var(--dark-blue));
   }
 
   .purple,
+  .PR,
   .activity,
   .group {
     @include color-block(var(--purple));
