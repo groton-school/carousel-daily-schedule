@@ -58,11 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
               break;
           }
         }
-      } else if (/^\+30 - ..2?/.test(arg.event.title)) {
-        match = /^\+30 - (..)2?/.exec(arg.event.title);
-        if (match && match.length) {
-          color = match[1];
-        }
       }
       return color;
     },
@@ -120,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       return {
         html: `<div class="fc-event-main-frame">
-                        ${displayTime && title != '+30'
+                        ${displayTime
             ? `
                             <div class="fc-event-time">
                                 <svg viewBox="0 0 100 12">

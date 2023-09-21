@@ -83,43 +83,36 @@ body {
     border: solid 0.25px $border;
   }
 
-  .red,
-  .RD {
+  .red {
     @include color-block(var(--red));
   }
 
   .orange,
-  .OR,
   .y-block {
     @include color-block(var(--orange));
   }
 
   .yellow,
-  .YL,
   .x-block {
     @include color-block(var(--yellow), black, lightgray);
   }
 
   .green,
-  .GR,
   .z-block {
     @include color-block(var(--green));
   }
 
   .light-blue,
-  .LB,
   .study-hall {
     @include color-block(var(--light-blue));
   }
 
   .dark-blue,
-  .DB,
   .w-block {
     @include color-block(var(--dark-blue));
   }
 
   .purple,
-  .PR,
   .activity,
   .group {
     @include color-block(var(--purple));
