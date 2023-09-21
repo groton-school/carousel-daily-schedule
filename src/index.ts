@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     eventClassNames: (arg) => {
       let color = 'no-color';
-      let match = new RegExp(
+      const match = new RegExp(
         isGRACE
           ? '^(W Block|X Block|Y Block|Z Block|Group Activity|Activity Options|Study Hall or Group Outing|Study Hall)'
           : '^(Red|Orange|Yellow|Green|Dark Blue|Light Blue|Purple)'
