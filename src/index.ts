@@ -12,7 +12,7 @@ const today = initialDate ? new Date(initialDate) : new Date();
 const isGRACE =
   (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const calendarEl = document.getElementById('calendar') as HTMLElement;
 
   const calendar = new Calendar(calendarEl, {
@@ -109,14 +109,17 @@ document.addEventListener('DOMContentLoaded', function() {
         end &&
         (end.getTime() - start.getTime()) / 1000 / 60 > (isGRACE ? 35 : 30);
       if (displayTime) {
-        time = `${start?.getHours() > 12 ? start.getHours() - 12 : start?.getHours()
-          }:${start.getMinutes() < 10 ? '0' : ''}${start?.getMinutes()} - ${end?.getHours() > 12 ? end.getHours() - 12 : end?.getHours()
-          }:${end.getMinutes() < 10 ? '0' : ''}${end?.getMinutes()}`;
+        time = `${
+          start?.getHours() > 12 ? start.getHours() - 12 : start?.getHours()
+        }:${start.getMinutes() < 10 ? '0' : ''}${start?.getMinutes()} - ${
+          end?.getHours() > 12 ? end.getHours() - 12 : end?.getHours()
+        }:${end.getMinutes() < 10 ? '0' : ''}${end?.getMinutes()}`;
       }
       return {
         html: `<div class="fc-event-main-frame">
-                        ${displayTime
-            ? `
+                        ${
+                          displayTime
+                            ? `
                             <div class="fc-event-time">
                                 <svg viewBox="0 0 100 12">
                                     <text x="50%" y="10" text-anchor="middle">
@@ -124,22 +127,24 @@ document.addEventListener('DOMContentLoaded', function() {
                                     </text>
                                 </svg>
                             </div>`
-            : ''
-          }
+                            : ''
+                        }
                     <div class="fc-event-title">
-                        ${`<svg viewBox="0 0 95 ${isGRACE && / or /.test(title) ? 40 : 20
-          }">
+                        ${`<svg viewBox="0 0 95 ${
+                          isGRACE && / or /.test(title) ? 40 : 20
+                        }">
                             <text x="50%" y="13" text-anchor="middle">
-                                ${isGRACE && / or /.test(title)
-            ? `<tspan x="50%" text-anchor="middle" dy="0">${title.replace(
-              /(.* or ).*/,
-              '$1'
-            )}</tspan><tspan x="50%" text-anchor="middle" dy="13">${title.replace(
-              /.* or (.*)/,
-              '$1'
-            )}</tspan>`
-            : title
-          }
+                                ${
+                                  isGRACE && / or /.test(title)
+                                    ? `<tspan x="50%" text-anchor="middle" dy="0">${title.replace(
+                                        /(.* or ).*/,
+                                        '$1'
+                                      )}</tspan><tspan x="50%" text-anchor="middle" dy="13">${title.replace(
+                                        /.* or (.*)/,
+                                        '$1'
+                                      )}</tspan>`
+                                    : title
+                                }
                             </text>
                         </svg>`}
                     </div>
