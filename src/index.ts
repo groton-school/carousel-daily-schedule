@@ -12,6 +12,8 @@ const today = initialDate ? new Date(initialDate) : new Date();
 const isGRACE =
   (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
 
+const events = [];
+
 document.addEventListener('DOMContentLoaded', function () {
   const calendarEl = document.getElementById('calendar') as HTMLElement;
 
@@ -155,6 +157,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   calendar.render();
   setTimeout(() => {
+    // remove day of week events
+    Array.from(
+      document.querySelectorAll(
+        '.fc-daygrid-event-harness:has(a):has(div:empty)'
+      )
+    ).map((event) => event.remove());
+
+    // remove duplicates
+    Array.from(
+      document.querySelectorAll(
+        '.fc-timegrid-event-harness-inset[style*="50%"]'
+      )
+    ).map((event) => {
+      if (event.previousElementSibling?.innerHTML == event.innerHTML) {
+        event.remove();
+      }
+    });
+
+    // show no events message
     if (!document.querySelector('.fc-event')) {
       (
         document.querySelector('#message-wrapper') as HTMLElement
