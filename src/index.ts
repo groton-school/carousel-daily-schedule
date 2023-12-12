@@ -6,13 +6,15 @@ import './index.scss';
 const params = new URLSearchParams(location.search);
 
 const feed = params.get('ics') || '';
-const message = params.get('feed') || 'No classes this week';
+const message = params.get('message') || 'No classes this week';
 const initialDate = params.get('initialDate') || undefined;
 const today = initialDate ? new Date(initialDate) : new Date();
 const isGRACE =
   (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
 
 const events = [];
+
+(document.querySelector('#message') as HTMLElement).innerText = message;
 
 document.addEventListener('DOMContentLoaded', function () {
   const calendarEl = document.getElementById('calendar') as HTMLElement;
@@ -156,13 +158,4 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   calendar.render();
-  setTimeout(() => {
-    // show no events message
-    if (!document.querySelector('.fc-event')) {
-      (
-        document.querySelector('#message-wrapper') as HTMLElement
-      ).classList.remove('hidden');
-      (document.querySelector('#message') as HTMLElement).innerHTML = message;
-    }
-  }, 10000);
 });
