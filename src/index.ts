@@ -157,24 +157,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   calendar.render();
   setTimeout(() => {
-    // remove day of week events
-    Array.from(
-      document.querySelectorAll(
-        '.fc-daygrid-event-harness:has(a):has(div:empty)'
-      )
-    ).map((event) => event.remove());
-
-    // remove duplicates
-    Array.from(
-      document.querySelectorAll(
-        '.fc-timegrid-event-harness-inset[style*="50%"]'
-      )
-    ).map((event) => {
-      if (event.previousElementSibling?.innerHTML == event.innerHTML) {
-        event.remove();
-      }
-    });
-
     // show no events message
     if (!document.querySelector('.fc-event')) {
       (

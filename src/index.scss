@@ -1,4 +1,8 @@
+@use 'sass:list';
+@use 'sass:map';
+
 :root {
+  // Academic year colors
   --groton-red: #a6093d;
   --red: red;
   --orange: rgb(255, 163, 0);
@@ -8,7 +12,21 @@
   --dark-blue: rgb(0, 80, 166);
   --purple: rgb(110, 0, 177);
   --no-color: gray;
+
+  // GRACE colors
+  --w-block: var(--dark-blue);
+  --x-block: var(--yellow);
+  --y-block: var(--orange);
+  --z-block: var(--green);
+  --study-hall: var(--light-blue);
+  --activity: var(--purple);
+  --group: var(--activity);
 }
+
+$colors: 'red', 'orange', 'yellow', 'green', 'light-blue', 'dark-blue', 'purple',
+  'w-block', 'x-block', 'y-block', 'z-block', 'study-hall', 'activity', 'group';
+
+$lightColors: 'yellow', 'x-block';
 
 body {
   margin: 0;
@@ -24,6 +42,22 @@ body {
   a.fc-col-header-cell-cushion {
     text-decoration: none;
     color: black;
+  }
+
+  // hide duplicate blocks
+  $colorSelectors: ();
+  @each $color in $colors {
+    $colorSelectors: map.set($colorSelectors, #{$color}, '.#{$color}');
+  }
+  .fc-timegrid-event-harness-inset[style*='50%']:has(
+      #{map.values($colorSelectors)}
+    ) {
+    display: none;
+  }
+
+  // hide empty day-long events
+  .fc-daygrid-event-harness:has(a):has(div:empty) {
+    display: none;
   }
 
   .fc-event {
@@ -83,39 +117,14 @@ body {
     border: solid 0.25px $border;
   }
 
-  .red {
-    @include color-block(var(--red));
-  }
-
-  .orange,
-  .y-block {
-    @include color-block(var(--orange));
-  }
-
-  .yellow,
-  .x-block {
-    @include color-block(var(--yellow), black, lightgray);
-  }
-
-  .green,
-  .z-block {
-    @include color-block(var(--green));
-  }
-
-  .light-blue,
-  .study-hall {
-    @include color-block(var(--light-blue));
-  }
-
-  .dark-blue,
-  .w-block {
-    @include color-block(var(--dark-blue));
-  }
-
-  .purple,
-  .activity,
-  .group {
-    @include color-block(var(--purple));
+  @each $color in $colors {
+    .#{$color} {
+      @include color-block(
+        var(--#{$color}),
+        if(list.index($lightColors, $color) != null, black, white),
+        if(list.index($lightColors, $color) !=null, lightgray, black)
+      );
+    }
   }
 
   .no-color {
