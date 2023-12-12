@@ -170,6 +170,6 @@ body {
   text-shadow: 0 0 10px white;
 }
 
-#wrapper:has(.fc-event) #message-wrapper {
+#wrapper:has(.fc-timegrid-event-harness) #message-wrapper {
   display: none;
 }
