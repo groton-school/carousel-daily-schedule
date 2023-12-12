@@ -5,14 +5,12 @@ import './index.scss';
 
 const params = new URLSearchParams(location.search);
 
-const feed = params.get('ics') || '';
+const feed = params.get('ics') || params.get('feed') || '';
 const message = params.get('message') || 'No classes this week';
 const initialDate = params.get('initialDate') || undefined;
 const today = initialDate ? new Date(initialDate) : new Date();
 const isGRACE =
   (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
-
-const events = [];
 
 (document.querySelector('#message') as HTMLElement).innerText = message;
 
