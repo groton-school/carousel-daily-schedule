@@ -2,6 +2,8 @@
 @use 'sass:map';
 
 :root {
+  --no-color: gray;
+
   // Academic year colors
   --groton-red: #a6093d;
   --red: red;
@@ -11,7 +13,6 @@
   --light-blue: rgb(135, 193, 255);
   --dark-blue: rgb(0, 80, 166);
   --purple: rgb(110, 0, 177);
-  --no-color: gray;
 
   // GRACE colors
   --w-block: var(--dark-blue);
