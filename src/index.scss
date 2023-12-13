@@ -168,8 +168,14 @@ body {
 #message {
   font-size: 10vh;
   text-shadow: 0 0 10px white;
+  text-align: center;
+  margin: min(5vh, 5vw);
 }
 
 #wrapper:has(.fc-timegrid-event-harness) #message-wrapper {
+  display: none;
+}
+
+.hidden {
   display: none;
 }

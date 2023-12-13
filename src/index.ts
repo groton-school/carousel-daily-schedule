@@ -3,6 +3,8 @@ import iCalendarPlugin from '@fullcalendar/icalendar';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import './index.scss';
 
+const EVENT_TYPE = 'fullcalendarInitialRender';
+
 const params = new URLSearchParams(location.search);
 
 const feed = params.get('ics') || params.get('feed') || '';
@@ -12,12 +14,13 @@ const today = initialDate ? new Date(initialDate) : new Date();
 const isGRACE =
   (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
 
-(document.querySelector('#message') as HTMLElement).innerText = message;
+const calendarElt = document.getElementById('calendar') as HTMLElement;
+const messageElt = document.querySelector('#message') as HTMLElement;
+
+messageElt.innerText = message;
 
 document.addEventListener('DOMContentLoaded', function () {
-  const calendarEl = document.getElementById('calendar') as HTMLElement;
-
-  const calendar = new Calendar(calendarEl, {
+  const calendar = new Calendar(calendarElt, {
     plugins: [timeGridPlugin, iCalendarPlugin],
     initialView: 'timeGridWeek',
     initialDate,
@@ -153,6 +156,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>`
       };
     }
+  });
+
+  let initialRender = false;
+  const observer = new MutationObserver((mutations, observer) => {
+    const elt = mutations.find((mutation) =>
+      Array.from(mutation.addedNodes).find((node) => {
+        const elt = node as HTMLElement;
+        return (
+          elt.classList.contains('fc-timegrid-event-harness') ||
+          elt.classList.contains('fc-daygrid-event-harness')
+        );
+      })
+    );
+    if (!initialRender && elt) {
+      observer.disconnect();
+      calendarElt.dispatchEvent(new CustomEvent(EVENT_TYPE));
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  calendarElt.addEventListener(EVENT_TYPE, () => {
+    // hide message if any scheduled events are visible
+    if (calendarElt.querySelector('.fc-timegrid-event-harness')) {
+      messageElt.parentElement?.classList.add('hidden');
+    }
+
+    // hide duplicates
+    Array.from(
+      calendarElt.querySelectorAll(
+        '.fc-timegrid-event-harness-inset[style*="50%"]'
+      )
+    ).forEach((node) => {
+      const elt = node as HTMLElement;
+      if (elt.innerHTML == elt.previousElementSibling?.innerHTML) {
+        elt.classList.add('hidden');
+      }
+    });
+
+    // hide empty day-long events
+    Array.from(
+      calendarElt.querySelectorAll(
+        '.fc-daygrid-event-harness:has(a):has(div:empty)'
+      )
+    ).forEach((node) => (node as HTMLElement).classList.add('hidden'));
   });
 
   calendar.render();
