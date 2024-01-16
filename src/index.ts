@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
       let color = 'no-color';
       const match = new RegExp(
         isGRACE
-          ? '^(W Block|X Block|Y Block|Z Block|Group Activity|Activity Options|Study Hall or Group Outing|Study Hall)'
-          : '^(Red|Orange|Yellow|Green|Dark Blue|Light Blue|Purple)'
+          ? '(W Block|X Block|Y Block|Z Block|Group Activity|Activity Options|Study Hall or Group Outing|Study Hall)'
+          : '(Red|Orange|Yellow|Green|Dark Blue|Light Blue|Purple)'
       ).exec(arg.event.title);
       if (match && match.length) {
         color = match[1].replace(' ', '-').toLowerCase();
@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return arg.event.title;
       }
-      const match = /^([^-]+[^A])( A)? -.*/.exec(arg.event.title);
       let title = arg.event.title.trim();
+      const match = /^(.+ - )?(.+) - (\d+|Stu) \(.+\)$/.exec(title);
       if (match && match.length) {
-        title = match[1];
+        title = match[2];
         switch (title) {
           case 'Conference period':
             title = 'Conference';
