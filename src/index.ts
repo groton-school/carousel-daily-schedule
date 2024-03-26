@@ -1,7 +1,7 @@
+import './index.scss';
 import { Calendar } from '@fullcalendar/core';
 import iCalendarPlugin from '@fullcalendar/icalendar';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import './index.scss';
 
 const EVENT_TYPE = 'fullcalendarInitialRender';
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return arg.event.title;
       }
       let title = arg.event.title.trim();
-      const match = /^(.+ - )?(.+) - (\d+|Stu) \(.+\)$/.exec(title);
+      const match = /^(.+ - )?(.+) - .+ \(.+\)$/.exec(title);
       if (match && match.length) {
         title = match[2];
         switch (title) {
@@ -158,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  let initialRender = false;
   const observer = new MutationObserver((mutations, observer) => {
     const elt = mutations.find((mutation) =>
       Array.from(mutation.addedNodes).find((node) => {
@@ -169,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         );
       })
     );
-    if (!initialRender && elt) {
+    if (elt) {
       observer.disconnect();
       calendarElt.dispatchEvent(new CustomEvent(EVENT_TYPE));
     }
