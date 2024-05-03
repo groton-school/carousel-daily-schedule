@@ -21,6 +21,10 @@ npm run setup
 
 ## Configure
 
+- Create a dedicated `Carousel Digital Signage` (or equivalent) student user, and one class per scheduled block.
+- Enroll the student in each of the classes (see Cunning Tricks below)
+- Get the webcal feed for the student's personal schedule from the Blackbaud LMS
+
 Navigate to the hosted app location `https://example.com/path/to/app` and use path parameters:
 
 | param | value |
@@ -52,6 +56,7 @@ In addition, for GRACE, the user needs to be enrolled in…
   Group Activity
   
 The user needs to be enrolled in the Academic Year blocks (which need to be created, per Cunning Tricks below) in mid-August, before the academic year starts.
+
 The user should be automatically enrolled by the Registrar with all other students in activity blocks for the academic year.
 
 ## Cunning tricks
