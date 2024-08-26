@@ -11,9 +11,6 @@ const feed = params.get('ics') || params.get('feed') || '';
 const message = params.get('message') || 'No classes this week';
 const title = params.get('title');
 const initialDate = params.get('initialDate') || undefined;
-const today = initialDate ? new Date(initialDate) : new Date();
-const isGRACE =
-  (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
 const defaultColor = params.get('defaultColor');
 
 const forceDisplayTimeParam = params.get('forceDisplayTime') || 'false';
@@ -33,6 +30,9 @@ switch (svgParam.toLowerCase()) {
   case 'no':
     svgText = false;
 }
+const today = initialDate ? new Date(initialDate) : new Date();
+const isGRACE =
+  (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
 
 const calendarElt = document.getElementById('calendar') as HTMLElement;
 const messageElt = document.querySelector('#message') as HTMLElement;
@@ -129,17 +129,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let time;
       const { start, end } = arg.event;
-      const displayTime =
-        start &&
-        end &&
-        (forceDisplayTime ||
+      let displayTime =
+        forceDisplayTime ||
+        (start &&
+          end &&
           (end.getTime() - start.getTime()) / 1000 / 60 > (isGRACE ? 45 : 30));
       if (displayTime) {
-        time = `${
-          start?.getHours() > 12 ? start.getHours() - 12 : start?.getHours()
-        }:${start.getMinutes() < 10 ? '0' : ''}${start?.getMinutes()} - ${
-          end?.getHours() > 12 ? end.getHours() - 12 : end?.getHours()
-        }:${end.getMinutes() < 10 ? '0' : ''}${end?.getMinutes()}`;
+        if (start) {
+          if (end) {
+            time = `${
+              start.getHours() > 12 ? start.getHours() - 12 : start.getHours()
+            }:${start.getMinutes() < 10 ? '0' : ''}${start.getMinutes()} - ${
+              end.getHours() > 12 ? end.getHours() - 12 : end.getHours()
+            }:${end.getMinutes() < 10 ? '0' : ''}${end.getMinutes()}`;
+          } else {
+            time = `${
+              start.getHours() > 12 ? start.getHours() - 12 : start.getHours()
+            }:${start.getMinutes() < 10 ? '0' : ''}${start?.getMinutes()}`;
+          }
+        } else {
+          displayTime = false;
+        }
       }
       return {
         html: `<div class="fc-event-main-frame">
