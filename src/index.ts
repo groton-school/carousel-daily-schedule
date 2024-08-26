@@ -9,10 +9,30 @@ const params = new URLSearchParams(location.search);
 
 const feed = params.get('ics') || params.get('feed') || '';
 const message = params.get('message') || 'No classes this week';
+const title = params.get('title');
 const initialDate = params.get('initialDate') || undefined;
 const today = initialDate ? new Date(initialDate) : new Date();
 const isGRACE =
   (today.getMonth() == 5 && today.getDate() > 15) || today.getMonth() == 6;
+const defaultColor = params.get('defaultColor');
+
+const forceDisplayTimeParam = params.get('forceDisplayTime') || 'false';
+let forceDisplayTime = false;
+switch (forceDisplayTimeParam.toLowerCase()) {
+  case '1':
+  case 'true':
+  case 'yes':
+    forceDisplayTime = true;
+}
+
+const svgParam = params.get('svgText') || 'true';
+let svgText = true;
+switch (svgParam.toLowerCase()) {
+  case '0':
+  case 'false':
+  case 'no':
+    svgText = false;
+}
 
 const calendarElt = document.getElementById('calendar') as HTMLElement;
 const messageElt = document.querySelector('#message') as HTMLElement;
@@ -112,7 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const displayTime =
         start &&
         end &&
-        (end.getTime() - start.getTime()) / 1000 / 60 > (isGRACE ? 45 : 30);
+        (forceDisplayTime ||
+          (end.getTime() - start.getTime()) / 1000 / 60 > (isGRACE ? 45 : 30));
       if (displayTime) {
         time = `${
           start?.getHours() > 12 ? start.getHours() - 12 : start?.getHours()
@@ -135,9 +156,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             : ''
                         }
                     <div class="fc-event-title">
-                        ${`<svg viewBox="0 0 95 ${
-                          isGRACE && / or /.test(title) ? 40 : 20
-                        }">
+                        ${
+                          svgText
+                            ? `<svg viewBox="0 0 95 ${
+                                isGRACE && / or /.test(title) ? 40 : 20
+                              }">
                             <text x="50%" y="13" text-anchor="middle">
                                 ${
                                   isGRACE && / or /.test(title)
@@ -151,7 +174,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                     : title
                                 }
                             </text>
-                        </svg>`}
+                        </svg>`
+                            : title
+                        }
                     </div>
                 </div>`
       };
@@ -199,6 +224,19 @@ document.addEventListener('DOMContentLoaded', function () {
         '.fc-daygrid-event-harness:has(a):has(div:empty)'
       )
     ).forEach((node) => (node as HTMLElement).classList.add('hidden'));
+
+    // replace title if parameter present
+    if (title) {
+      const header = calendarElt.querySelector(
+        '.fc-toolbar-title'
+      ) as HTMLElement;
+      header.innerText = title.replace('{{Date}}', header.innerText);
+    }
+
+    // change color of default blocks
+    if (defaultColor) {
+      calendarElt.style.setProperty('--no-color', defaultColor);
+    }
   });
 
   calendar.render();
