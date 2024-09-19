@@ -1,7 +1,9 @@
 {
   "name": "carousel-daily-schedule",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.4.3",
+  "description": "Display a webcal feed graphically on a web page, to be displayed on our digital signage",
+  "license": "GPL-3.0",
+  "author": "",
   "main": "index.js",
   "scripts": {
     "setup": "node bin/setup.mjs",
@@ -11,25 +13,23 @@
     "deploy:build": "npm run build",
     "deploy:publish": "node bin/deploy.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "prettier": "@battis/prettier-config",
+  "eslintConfig": {
+    "extends": "@battis/eslint-config"
+  },
   "dependencies": {
-    "@fullcalendar/core": "^6.1.13",
-    "@fullcalendar/icalendar": "^6.1.13",
-    "@fullcalendar/timegrid": "^6.1.13",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/icalendar": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
     "ical.js": "^1.5.0"
   },
   "devDependencies": {
     "@battis/eslint-config": "latest",
-    "@battis/partly-gcloudy": "^0.4.3",
+    "@battis/partly-gcloudy": "^0.4.5",
     "@battis/prettier-config": "latest",
     "@battis/qui-cli": "^0.4.2",
     "@battis/webpack": "latest",
+    "@changesets/cli": "^2.27.8",
     "npm-run-all": "^4.1.5"
-  },
-  "prettier": "@battis/prettier-config",
-  "eslintConfig": {
-    "extends": "@battis/eslint-config"
   }
 }

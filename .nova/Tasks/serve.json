@@ -1,9 +1,9 @@
 {
-  "actions" : {
-    "run" : {
-      "enabled" : true,
-      "script" : "npm run serve"
+  "actions": {
+    "run": {
+      "enabled": true,
+      "script": "npm run serve"
     }
   },
-  "openLogOnRun" : "start"
+  "openLogOnRun": "start"
 }

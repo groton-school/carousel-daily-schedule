@@ -1,7 +1,7 @@
-import './index.scss';
 import { Calendar } from '@fullcalendar/core';
 import iCalendarPlugin from '@fullcalendar/icalendar';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import './index.scss';
 
 const EVENT_TYPE = 'fullcalendarInitialRender';
 
