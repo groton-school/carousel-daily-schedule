@@ -31,8 +31,8 @@ importers:
         specifier: latest
         version: 1.5.5(typescript@5.4.5)
       '@battis/qui-cli':
-        specifier: ^0.4.2
-        version: 0.4.2
+        specifier: ^0.8.4
+        version: 0.8.4
       '@battis/webpack':
         specifier: latest
         version: 2.0.1(x2mcwt3vd7ayc2sniyavl332ci)
@@ -130,8 +130,36 @@ packages:
     resolution: {integrity: sha512-g+1W+5Tjmeo0U7vWu0JCl8EYsuUV8StaUSkby66bN6VzWv21HpZYtSzV4MgzLSiRvXEuKAGGUN98kh1MXSjwGQ==}
     engines: {node: '>=12.17'}
 
+  '@battis/qui-cli.colors@0.8.2':
+    resolution: {integrity: sha512-VzkixmUvtqzX5lS8KTldwlRa+Pub6QGYgBYXjfBLT3iFYpYxf4Q/hYcqZeuk3tPAZ6cf+n7TuFEX0c5tYyJeIA==}
+
+  '@battis/qui-cli.core@0.8.4':
+    resolution: {integrity: sha512-dyQzmtzYMVJT3pBQjyn0XkkvHRrN1L5qZWosAZXKLZnpJ5sivPhY+XHbSU5Dy9rqC05xue/kUjwNEpfmfIOG2w==}
+
+  '@battis/qui-cli.env@0.8.2':
+    resolution: {integrity: sha512-MDYhKe1U39jSputb3K1rVHuL6t9r1nFhBE8owny4CpGps95D4oL6ivtdcEN8op5KrWiUVlq6GxHxPkd6If1Vxg==}
+
+  '@battis/qui-cli.log@0.8.2':
+    resolution: {integrity: sha512-eAkr1mzer8fuBtGQYDxk4P2EdcWcaAktnqU9nbCVAsxTXKCvlmGEgGybCb0dz9SuKSKdzsbUNKfxiuDsjgZCPg==}
+
+  '@battis/qui-cli.plugin@0.1.2':
+    resolution: {integrity: sha512-AOPm0kHDDDkvmkw4kz7ckHEfxoOE/Z/JzzE71jhzMk5oAHpbY5CBGshIwFgx+Xt4Q5Tvj03yui/W35KqZHfvlg==}
+
+  '@battis/qui-cli.root@0.8.2':
+    resolution: {integrity: sha512-QOW5urXUQsHp0pDvH3WDvsMIw8qqpg6/J0MZeRXQo08dRZYwt9cOGih8YP3fieHj4YgQ/qBa1KnmLOZCxnxfvw==}
+
+  '@battis/qui-cli.shell@0.8.2':
+    resolution: {integrity: sha512-6B7d4OBMWPGy9pMzfJ5gle97peunQcChtfYt3ul3VtFYCF931rCTLiriGW5X4ruzgBPKhVl4LLrUR49NxvLOCg==}
+
+  '@battis/qui-cli.validators@0.8.2':
+    resolution: {integrity: sha512-KI+qLAyxMvMN9niB8i5o/DfhuOxENX3Wwalc11nep++1FMzSLUVVMmNptIvOde2ca2lhC7E3DGX8/TuZo1UlOQ==}
+
   '@battis/qui-cli@0.4.2':
     resolution: {integrity: sha512-IiSLPNjSQ7HH8+kQwjEOTWhzJpXpiU4mxc1Jn5Prko/RUyzR5Gcahe/Y2sGy/N9TRXjNHjiQtErOaypw6OAMQw==}
+    engines: {node: '>=12.17'}
+
+  '@battis/qui-cli@0.8.4':
+    resolution: {integrity: sha512-VKDugEnm17NHwWn593T/nknEZWXb14AsFEblERsBTb3zCiNmr5zgmqv+cfin0rJwLoMsuJBwImnd/CRSGwAWiQ==}
     engines: {node: '>=12.17'}
 
   '@battis/typescript-tricks@0.4.3':
@@ -731,6 +759,13 @@ packages:
   '@sindresorhus/is@0.7.0':
     resolution: {integrity: sha512-ONhaKPIufzzrlNbqtWFFd+jlnemX6lJAgq9ZeiZtS7I1PIf/la7CW4m83rTXRnVnsMbW2k56pGYu7AUFJD9Pow==}
     engines: {node: '>=4'}
+
+  '@tahul/is-valid-domain@1.0.5':
+    resolution: {integrity: sha512-v3SnS3ntddd0kSodBDnybqg9QgijM+0En4IcyX1sH3lteBwewhk4eHMYx5DSdAyodcp7PclkJCAy8Ar+q5+ltg==}
+
+  '@tahul/punycode@2.3.4':
+    resolution: {integrity: sha512-W3jmrdOGSWCpUIfrtrew8vUVdH0hnntZSKqBHKxZXTEVugGtbY337GCbeWIrmEi/lSwa/u00zKUYNKRJv/0Dsw==}
+    engines: {node: '>=6'}
 
   '@tokenizer/token@0.3.0':
     resolution: {integrity: sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==}
@@ -2907,6 +2942,10 @@ packages:
     resolution: {integrity: sha512-CdaO738xRapbKIMVn2m4F6KTj4j7ooJ8POVnebSgKo3KBz5axNXRAL7ZdRjIV6NOr2Uf4vjtRkxrFETOioCqSA==}
     engines: {node: '>= 12.0.0'}
 
+  logform@2.7.0:
+    resolution: {integrity: sha512-TFYA4jnP7PVbmlBIfhlSe+WKxs9dklXMTEGcBCIvLhE/Tn3H6Gk1norupVW7m5Cnd4bLcr08AytbyV/xj7f/kQ==}
+    engines: {node: '>= 12.0.0'}
+
   longest@1.0.1:
     resolution: {integrity: sha512-k+yt5n3l48JU4k8ftnKG6V7u32wyH2NfKzeMto9F/QRE0amxy/LayxwlvjjkZEIzqR+19IrtFO8p5kB9QaYUFg==}
     engines: {node: '>=0.10.0'}
@@ -4725,8 +4764,16 @@ packages:
     resolution: {integrity: sha512-wQCXXVgfv/wUPOfb2x0ruxzwkcZfxcktz6JIMUaPLmcNhO4bZTwA/WtDWK74xV3F2dKu8YadrFv0qhwYjVEwhA==}
     engines: {node: '>= 12.0.0'}
 
+  winston-transport@4.9.0:
+    resolution: {integrity: sha512-8drMJ4rkgaPo1Me4zD/3WLfI/zPdA9o2IipKODunnGDcuqbHwjsbB79ylv04LCGGzU0xQ6vTznOMpQGaLhhm6A==}
+    engines: {node: '>= 12.0.0'}
+
   winston@3.14.2:
     resolution: {integrity: sha512-CO8cdpBB2yqzEf8v895L+GNKYJiEq8eKlHU38af3snQBQ+sdAIUepjMSguOIJC7ICbzm0ZI+Af2If4vIJrtmOg==}
+    engines: {node: '>= 12.0.0'}
+
+  winston@3.17.0:
+    resolution: {integrity: sha512-DLiFIXYC5fMPxaRg832S6F5mJYvePtmO5G9v9IgUFPhXm9/GkXarH/TUrBAVzhTCzAj9anE/+GjrgXp/54nOgw==}
     engines: {node: '>= 12.0.0'}
 
   word-wrap@1.2.5:
@@ -4915,6 +4962,56 @@ snapshots:
       - typescript
       - vue-tsc
 
+  '@battis/qui-cli.colors@0.8.2':
+    dependencies:
+      '@battis/qui-cli.plugin': 0.1.2
+      chalk: 4.1.2
+
+  '@battis/qui-cli.core@0.8.4':
+    dependencies:
+      '@battis/qui-cli.plugin': 0.1.2
+      jackspeak: 2.3.6
+
+  '@battis/qui-cli.env@0.8.2':
+    dependencies:
+      '@battis/qui-cli.plugin': 0.1.2
+      '@battis/qui-cli.root': 0.8.2
+      dotenv: 16.4.5
+
+  '@battis/qui-cli.log@0.8.2':
+    dependencies:
+      '@battis/qui-cli.colors': 0.8.2
+      '@battis/qui-cli.plugin': 0.1.2
+      ora: 6.3.1
+      strip-ansi: 7.1.0
+      winston: 3.17.0
+
+  '@battis/qui-cli.plugin@0.1.2':
+    dependencies:
+      jackspeak: 2.3.6
+
+  '@battis/qui-cli.root@0.8.2':
+    dependencies:
+      '@battis/qui-cli.plugin': 0.1.2
+      app-root-path: 3.1.0
+
+  '@battis/qui-cli.shell@0.8.2':
+    dependencies:
+      '@battis/qui-cli.colors': 0.8.2
+      '@battis/qui-cli.log': 0.8.2
+      '@battis/qui-cli.plugin': 0.1.2
+      ora: 6.3.1
+      shelljs: 0.8.5
+
+  '@battis/qui-cli.validators@0.8.2':
+    dependencies:
+      '@battis/qui-cli.plugin': 0.1.2
+      '@battis/qui-cli.root': 0.8.2
+      '@tahul/is-valid-domain': 1.0.5
+      cron-validate: 1.4.5
+      email-validator: 2.0.4
+      is-valid-path: 0.1.1
+
   '@battis/qui-cli@0.4.2':
     dependencies:
       '@inquirer/prompts': 2.3.1
@@ -4930,6 +5027,19 @@ snapshots:
       shelljs: 0.8.5
       strip-ansi: 7.1.0
       winston: 3.14.2
+
+  '@battis/qui-cli@0.8.4':
+    dependencies:
+      '@battis/qui-cli.colors': 0.8.2
+      '@battis/qui-cli.core': 0.8.4
+      '@battis/qui-cli.env': 0.8.2
+      '@battis/qui-cli.log': 0.8.2
+      '@battis/qui-cli.plugin': 0.1.2
+      '@battis/qui-cli.root': 0.8.2
+      '@battis/qui-cli.shell': 0.8.2
+      '@battis/qui-cli.validators': 0.8.2
+      '@inquirer/prompts': 2.3.1
+      ora: 6.3.1
 
   '@battis/typescript-tricks@0.4.3': {}
 
@@ -5646,6 +5756,12 @@ snapshots:
 
   '@sindresorhus/is@0.7.0':
     optional: true
+
+  '@tahul/is-valid-domain@1.0.5':
+    dependencies:
+      '@tahul/punycode': 2.3.4
+
+  '@tahul/punycode@2.3.4': {}
 
   '@tokenizer/token@0.3.0':
     optional: true
@@ -8164,6 +8280,15 @@ snapshots:
       safe-stable-stringify: 2.5.0
       triple-beam: 1.4.1
 
+  logform@2.7.0:
+    dependencies:
+      '@colors/colors': 1.6.0
+      '@types/triple-beam': 1.3.5
+      fecha: 4.2.3
+      ms: 2.1.3
+      safe-stable-stringify: 2.5.0
+      triple-beam: 1.4.1
+
   longest@1.0.1:
     optional: true
 
@@ -10164,6 +10289,12 @@ snapshots:
       readable-stream: 3.6.2
       triple-beam: 1.4.1
 
+  winston-transport@4.9.0:
+    dependencies:
+      logform: 2.7.0
+      readable-stream: 3.6.2
+      triple-beam: 1.4.1
+
   winston@3.14.2:
     dependencies:
       '@colors/colors': 1.6.0
@@ -10177,6 +10308,20 @@ snapshots:
       stack-trace: 0.0.10
       triple-beam: 1.4.1
       winston-transport: 4.7.1
+
+  winston@3.17.0:
+    dependencies:
+      '@colors/colors': 1.6.0
+      '@dabh/diagnostics': 2.0.3
+      async: 3.2.6
+      is-stream: 2.0.1
+      logform: 2.7.0
+      one-time: 1.0.0
+      readable-stream: 3.6.2
+      safe-stable-stringify: 2.5.0
+      stack-trace: 0.0.10
+      triple-beam: 1.4.1
+      winston-transport: 4.9.0
 
   word-wrap@1.2.5: {}
 
