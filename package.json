@@ -4,18 +4,16 @@
   "description": "Display a webcal feed graphically on a web page, to be displayed on our digital signage",
   "license": "GPL-3.0",
   "author": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "setup": "node bin/setup.mjs",
+    "setup": "node bin/deploy.js -v",
     "build": "webpack",
     "serve": "webpack serve",
     "deploy": "run-s deploy:*",
     "deploy:build": "npm run build",
-    "deploy:publish": "node bin/deploy.mjs"
-  },
-  "prettier": "@battis/prettier-config",
-  "eslintConfig": {
-    "extends": "@battis/eslint-config"
+    "deploy:publish": "node bin/deploy.js -v",
+    "release": "commit-and-tag-version"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.15",
@@ -24,13 +22,15 @@
     "ical.js": "^1.5.0"
   },
   "devDependencies": {
-    "@battis/eslint-config": "latest",
-    "@battis/partly-gcloudy": "^0.6.0",
-    "@battis/prettier-config": "latest",
-    "@battis/qui-cli": "^0.9.1",
-    "@battis/webpack": "latest",
-    "@changesets/cli": "^2.27.12",
+    "@battis/eslint-config": "^2.0.3",
+    "@battis/partly-gcloudy": "^1.1.0",
+    "@battis/prettier-config": "^1.5.7",
+    "@battis/qui-cli": "^2.1.1",
+    "@battis/webpack": "^2.0.4",
+    "@tsconfig/node20": "^20.1.4",
+    "commit-and-tag-version": "^12.5.0",
     "npm-run-all": "^4.1.5"
   },
   "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }
+
