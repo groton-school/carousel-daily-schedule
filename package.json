@@ -24,7 +24,7 @@
   "devDependencies": {
     "@battis/eslint-config": "^2.0.3",
     "@battis/partly-gcloudy": "^1.1.0",
-    "@battis/prettier-config": "^1.5.7",
+    "@battis/prettier-config": "^1.6.0",
     "@battis/qui-cli": "^2.1.1",
     "@battis/webpack": "^2.0.4",
     "@tsconfig/node20": "^20.1.4",
