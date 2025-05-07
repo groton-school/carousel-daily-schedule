@@ -1,26 +1,16 @@
 @use 'sass:list';
 @use 'sass:map';
+@use '../node_modules/@groton/colors/colors';
+@use '../node_modules/@groton/colors/vars.css';
 
 :root {
-  --no-color: gray;
-  --groton-red: #a6093d;
-
-  // Academic year colors
-  --red: red;
-  --orange: rgb(255, 163, 0);
-  --yellow: rgb(255, 249, 44);
-  --green: rgb(9, 180, 0);
-  --light-blue: rgb(135, 193, 255);
-  --dark-blue: rgb(0, 80, 166);
-  --purple: rgb(110, 0, 177);
-
   // GRACE colors
-  --w-block: var(--dark-blue);
-  --x-block: var(--yellow);
-  --y-block: var(--orange);
-  --z-block: var(--green);
-  --study-hall: var(--light-blue);
-  --activity: var(--purple);
+  --w-block: #{colors.$dark-blue};
+  --x-block: #{colors.$yellow};
+  --y-block: #{colors.$orange};
+  --z-block: #{colors.$green};
+  --study-hall: #{colors.$light-blue};
+  --activity: #{colors.$purple};
   --group: var(--activity);
 }
 
