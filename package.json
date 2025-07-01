@@ -16,7 +16,7 @@
     "release": "commit-and-tag-version"
   },
   "dependencies": {
-    "@fullcalendar/core": "^6.1.17",
+    "@fullcalendar/core": "^6.1.18",
     "@fullcalendar/icalendar": "^6.1.17",
     "@fullcalendar/timegrid": "^6.1.17",
     "@groton/colors": "^0.1.2",
