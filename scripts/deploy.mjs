@@ -1,7 +1,8 @@
 import gcloud from '@battis/partly-gcloudy';
-import cli from '@battis/qui-cli';
+import CLI from '@battis/qui-cli';
 
-const args = await cli.init({
+await CLI.env.configure();
+const args = await CLI.init({
   opt: {
     name: {
       description: 'Google Cloud project name',
@@ -20,7 +21,7 @@ try {
     ...args.values,
     retainVersions: 2
   });
-  cli.log.info('Deploy complete.');
+  CLI.log.info('Deploy complete.');
 } catch (e) {
-  cli.log.error(e);
+  CLI.log.error(e);
 }
