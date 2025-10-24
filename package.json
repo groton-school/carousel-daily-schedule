@@ -1,6 +1,6 @@
 {
   "name": "carousel-daily-schedule",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Display a webcal feed graphically on a web page, to be displayed on our digital signage",
   "license": "GPL-3.0",
   "author": "",
