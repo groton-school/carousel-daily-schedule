@@ -1,20 +1,20 @@
 @use 'sass:list';
 @use 'sass:map';
-@use '../node_modules/@groton/colors/colors';
-@use '../node_modules/@groton/colors/vars.css';
+@use '@groton/colors/vars.css';
 
 :root {
   // GRACE colors
-  --w-block: #{colors.$dark-blue};
-  --x-block: #{colors.$yellow};
-  --y-block: #{colors.$orange};
-  --z-block: #{colors.$green};
-  --study-hall: #{colors.$light-blue};
-  --activity: #{colors.$purple};
+  --w-block: var(--dark-blue);
+  --x-block: var(--yellow);
+  --y-block: var(--orange);
+  --z-block: var(--green);
+  --study-hall: var(--light-blue);
+  --activity: var(--purple);
   --group: var(--activity);
 }
 
-$colors: 'red', 'orange', 'yellow', 'green', 'light-blue', 'dark-blue', 'purple',
+$colors:
+  'red', 'orange', 'yellow', 'green', 'light-blue', 'dark-blue', 'purple',
   'w-block', 'x-block', 'y-block', 'z-block', 'study-hall', 'activity', 'group';
 
 $lightColors: 'yellow', 'x-block';

@@ -1,7 +1,9 @@
+#!/usr/bin/env node
+
 import gcloud from '@battis/partly-gcloudy';
-import { Core } from '@battis/qui-cli.core';
-import { OP } from '@battis/qui-cli.env/1Password.js';
-import { Log } from '@battis/qui-cli.log';
+import { Core } from '@qui-cli/core';
+import { OP } from '@qui-cli/env/1Password.js';
+import { Log } from '@qui-cli/log';
 
 await OP.configure();
 const args = await Core.init({
