@@ -28,7 +28,7 @@
     "@1password/sdk": "^0.3.1",
     "@battis/eslint-config": "^2.0.6",
     "@battis/partly-gcloudy": "^1.4.1",
-    "@battis/prettier-config": "^1.7.0",
+    "@battis/prettier-config": "^1.7.1",
     "@battis/webpack": "^2.0.7",
     "@qui-cli/core": "^4.0.1",
     "@qui-cli/env": "^4.0.1",
