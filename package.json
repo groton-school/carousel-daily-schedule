@@ -25,7 +25,7 @@
     "ical.js": "^1.5.0"
   },
   "devDependencies": {
-    "@1password/sdk": "^0.3.1",
+    "@1password/sdk": "^0.4.0",
     "@battis/eslint-config": "^2.0.6",
     "@battis/partly-gcloudy": "^1.4.1",
     "@battis/prettier-config": "^1.7.0",
