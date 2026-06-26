@@ -2,10 +2,9 @@
 
 import gcloud from '@battis/partly-gcloudy';
 import { Core } from '@qui-cli/core';
-import { OP } from '@qui-cli/env/1Password.js';
+import { Env } from '@qui-cli/env';
 import { Log } from '@qui-cli/log';
 
-await OP.configure();
 const args = await Core.init({
   opt: {
     name: {
