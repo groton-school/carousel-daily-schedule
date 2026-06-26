@@ -18,24 +18,24 @@
     "release:publish": "git push --follow-tags; git checkout main; git merge dev; git push; git checkout dev"
   },
   "dependencies": {
-    "@fullcalendar/core": "^6.1.19",
-    "@fullcalendar/icalendar": "^6.1.19",
-    "@fullcalendar/timegrid": "^6.1.19",
-    "@groton/colors": "^0.4.2",
+    "@fullcalendar/core": "^6.1.21",
+    "@fullcalendar/icalendar": "^6.1.21",
+    "@fullcalendar/timegrid": "^6.1.21",
+    "@groton/colors": "^0.4.3",
     "ical.js": "^1.5.0"
   },
   "devDependencies": {
     "@1password/sdk": "^0.3.1",
-    "@battis/eslint-config": "^2.0.6",
-    "@battis/partly-gcloudy": "^1.4.1",
-    "@battis/prettier-config": "^1.7.0",
-    "@battis/webpack": "^2.0.7",
-    "@qui-cli/core": "^4.0.1",
-    "@qui-cli/env": "^4.0.1",
-    "@qui-cli/log": "^3.0.1",
-    "@tsconfig/node20": "^20.1.6",
-    "commit-and-tag-version": "^12.6.0",
+    "@battis/eslint-config": "^2.1.0",
+    "@battis/partly-gcloudy": "^1.5.0",
+    "@battis/prettier-config": "^1.7.3",
+    "@battis/webpack": "^2.1.1",
+    "@qui-cli/core": "^4.1.0",
+    "@qui-cli/env": "^4.1.0",
+    "@qui-cli/log": "^3.1.0",
+    "@tsconfig/node20": "^20.1.9",
+    "commit-and-tag-version": "^12.7.3",
     "npm-run-all": "^4.1.5"
   },
-  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
+  "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b"
 }
