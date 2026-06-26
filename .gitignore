@@ -2,3 +2,5 @@
 /public
 /logs
 /node_modules
+
+/vendor/
